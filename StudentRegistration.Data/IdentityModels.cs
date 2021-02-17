@@ -35,7 +35,7 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
-        public DbSet<Student>Students { get; set; }
+        public DbSet<Student>Student { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder

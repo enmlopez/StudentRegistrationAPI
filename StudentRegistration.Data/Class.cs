@@ -13,10 +13,11 @@ namespace StudentRegistration.Data
         public string Name { get; set; }
         [ForeignKey(nameof(Teacher))]
         public int? TeacherId { get; set; }
-        [ForeignKey(nameof(Student))]
-        public int? StudentId { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        
         [ForeignKey(nameof(Course))]
         public int? CourseId { get; set; }
+        public virtual Course Course { get; set; }
 
 
     }

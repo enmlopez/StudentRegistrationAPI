@@ -24,5 +24,6 @@ namespace StudentRegistration.Data
         public int UnderGradYear { get; set; }
         [ForeignKey(nameof(Class))]
         public int? ClassId { get; set; }
+        public virtual Class Class { get; set; }
     }
 }
