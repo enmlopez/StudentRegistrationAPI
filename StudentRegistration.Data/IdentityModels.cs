@@ -8,7 +8,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using StudentRegistration.Data;
 
-namespace StudentRegistration.WebAPI.Models
+
+
+namespace StudentRegistration.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
@@ -26,8 +28,8 @@ namespace StudentRegistration.WebAPI.Models
         public string Last { get; set; }
         public string Major { get; set; }  
         public string year { get; set; }
-        
-    }
+     }
+
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -41,13 +43,11 @@ namespace StudentRegistration.WebAPI.Models
             return new ApplicationDbContext();
         }
 
-        
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
-                .Conventions
-                .Remove<PluralizingTableNameConvention>();
+            .Conventions
+            .Remove<PluralizingTableNameConvention>();
 
             modelBuilder
                 .Configurations
@@ -55,6 +55,12 @@ namespace StudentRegistration.WebAPI.Models
                 .Add(new IdentityUserRoleConfiguration());
         }
     }
+    
+  
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Class> Class { get; set; }
+        public DbSet<Course> Course { get; set; }
+        public DbSet<Student>Student { get; set; }
 
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
@@ -70,6 +76,5 @@ namespace StudentRegistration.WebAPI.Models
         {
             HasKey(iur => iur.UserId);
         }
-
     }
 }
