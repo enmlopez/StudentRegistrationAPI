@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using StudentRegistration.WebAPI.Providers;
 using StudentRegistration.WebAPI.Models;
+using StudentRegistration.Data;
 
 namespace StudentRegistration.WebAPI
 {

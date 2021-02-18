@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
+using StudentRegistration.Data;
 using StudentRegistration.WebAPI.Models;
 using StudentRegistration.WebAPI.Providers;
 using StudentRegistration.WebAPI.Results;
@@ -328,7 +329,7 @@ namespace StudentRegistration.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, First = model.First,Last = model.Last }; //TODO add properties here
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
