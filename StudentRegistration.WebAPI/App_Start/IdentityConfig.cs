@@ -6,7 +6,8 @@ using Microsoft.Owin;
 using StudentRegistration.Data;
 using StudentRegistration.WebAPI.Models;
 
-namespace StudentRegistration.WebAPI
+
+namespace StudentRegistration.Data
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
 

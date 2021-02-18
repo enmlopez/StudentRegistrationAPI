@@ -10,6 +10,7 @@ namespace StudentRegistration.Data
 {
     public class Student
     {
+
         [Key]
         public int Id { get; set; }
         [Required]
@@ -25,5 +26,6 @@ namespace StudentRegistration.Data
         [ForeignKey(nameof(Class))]
         public int? ClassId { get; set; }
         public virtual Class Class { get; set; }
+
     }
 }
