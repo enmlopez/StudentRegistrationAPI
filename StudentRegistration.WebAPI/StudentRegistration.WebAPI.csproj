@@ -308,15 +308,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudentRegistration.Data\StudentRegistration.Data.csproj">
-      <Project>{60712481-1e11-4292-b793-9f8ea8b12a0c}</Project>
+      <Project>{0e322936-30c9-45c0-822f-4d07b06af2d8}</Project>
       <Name>StudentRegistration.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\StudentRegistration.Models\StudentRegistration.Models.csproj">
-      <Project>{b41b3252-d27f-4d1b-a362-fcb50caff656}</Project>
+      <Project>{cb03b32c-1f64-4cf2-835c-33c676cd0b86}</Project>
       <Name>StudentRegistration.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\StudentRegistration.Services\StudentRegistration.Services.csproj">
-      <Project>{d4e41e8a-4a49-4ad7-b2fd-0566235f9069}</Project>
+      <Project>{e78d72c0-27f2-46a6-b521-0ec2cf21644b}</Project>
       <Name>StudentRegistration.Services</Name>
     </ProjectReference>
   </ItemGroup>
