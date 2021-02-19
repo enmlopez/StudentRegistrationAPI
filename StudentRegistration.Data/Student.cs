@@ -13,6 +13,7 @@ namespace StudentRegistration.Data
         [Key]
         public int Id { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
         public string Email { get; set; }
         [Required]
         public string FullName { get; set; }

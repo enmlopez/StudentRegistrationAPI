@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentRegistration.Data
@@ -10,6 +11,7 @@ namespace StudentRegistration.Data
         [Key]
         public int Id { get; set; }
         [Required]
+        public Guid OwnerID { get; set; }
         public string Name { get; set; }
         [ForeignKey(nameof(Teacher))]
         public int? TeacherId { get; set; }
