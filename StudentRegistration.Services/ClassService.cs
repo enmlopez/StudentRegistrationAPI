@@ -8,43 +8,45 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Services
 {
-    public class CourseService
+    public class ClassService
     {
         private readonly Guid _userId;
 
-        public CourseService(Guid userId)
+        public ClassService(Guid userId)
         {
             _userId = userId;
         }
-        public bool CreateCourse(CourseCreate model)
+
+        public bool CreateClass (ClassCreate model)
         {
             var entity =
-                new Course()
+                new Class()
                 {
                     OwnerId = _userId,
-                    Title = model.Title
+                    Name = model.Name,
+                   
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Course.Add(entity);
+                ctx.Class.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<CourseListItems> GetCourse()
+        public IEnumerable<ClassListItems> GetClass()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Course
+                        .Class
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new CourseListItems
+                                new ClassListItems
                                 {
                                     Id = e.Id,
-                                    Title = e.Title,
+                                    Name = e.Name
                                     
                                 }
                         );
@@ -52,6 +54,5 @@ namespace StudentRegistration.Services
                 return query.ToArray();
             }
         }
-
     }
 }

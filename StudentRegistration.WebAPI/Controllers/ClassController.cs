@@ -9,32 +9,31 @@ using System.Web.Http;
 
 namespace StudentRegistration.WebAPI.Controllers
 {
-    [Authorize]
-    public class CourseController:ApiController
+    public class ClassController:ApiController
     {
+        [Authorize]
         public IHttpActionResult Get()
         {
-            CourseService courseService = CreateCourseService();
-            var course = courseService.GetCourse();
-            return Ok(course);
+            ClassService classService = CreateClassService();
+            var classs = classService.GetClass();
+            return Ok(classs);
         }
-        public IHttpActionResult Post(CourseCreate course)
+        public IHttpActionResult Post(ClassCreate note)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var service = CreateCourseService();
+            var service = CreateClassService();
 
-            if (!service.CreateCourse(course))
+            if (!service.CreateClass(note))
                 return InternalServerError();
 
             return Ok();
         }
-
-        private CourseService CreateCourseService()
+        private ClassService CreateClassService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new CourseService(userId);
+            var noteService = new ClassService(userId);
             return noteService;
         }
     }
