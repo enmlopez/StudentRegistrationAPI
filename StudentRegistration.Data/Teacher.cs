@@ -14,6 +14,7 @@ namespace StudentRegistration.Data
         [Key]
         public int Id { get; set; }
         [Required]
+        public Guid OwnerId { get; set; }
         public  string   FullName { get; set; }
         [Required]
         public  string Department { get; set; }
