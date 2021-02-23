@@ -27,7 +27,7 @@ namespace StudentRegistration.Data
         public string First { get; set; }
         public string Last { get; set; }
         public string Major { get; set; }  
-        public string year { get; set; }
+        public string Year { get; set; }
      }
 
 
@@ -42,6 +42,9 @@ namespace StudentRegistration.Data
         {
             return new ApplicationDbContext();
         }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Class> Class { get; set; }
+        public DbSet<Course> Course { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,13 +58,6 @@ namespace StudentRegistration.Data
                 .Add(new IdentityUserRoleConfiguration());
         }
     }
-    
-  
-        public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Class> Class { get; set; }
-        public DbSet<Course> Course { get; set; }
-        public DbSet<Student>Student { get; set; }
-
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
