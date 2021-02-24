@@ -37,6 +37,10 @@ namespace StudentRegistration.WebAPI.Controllers
         [HttpGet]
         public IHttpActionResult GetTeacherId(int teacherId)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var teacher = _teacherService.GetTeacherById(teacherId);
             return Ok(teacher);
         }

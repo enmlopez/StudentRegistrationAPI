@@ -58,6 +58,7 @@ namespace StudentRegistration.Services
                     TeacherId = entity.TeacherId,
                     FirstName = entity.FirstName,
                     LastName = entity.LastName
+
                 };
             }
         }
