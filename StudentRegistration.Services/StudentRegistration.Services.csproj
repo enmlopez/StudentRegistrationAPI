@@ -55,10 +55,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentRegistration.Data\StudentRegistration.Data.csproj">
+      <Project>{0e322936-30c9-45c0-822f-4d07b06af2d8}</Project>
+      <Name>StudentRegistration.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentRegistration.Models\StudentRegistration.Models.csproj">
+      <Project>{cb03b32c-1f64-4cf2-835c-33c676cd0b86}</Project>
+      <Name>StudentRegistration.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
