@@ -57,7 +57,7 @@ namespace StudentRegistration.WebAPI.Models
 
         public string Major { get; set; }
 
-        public string year { get; set; }
+        public string Year { get; set; }
 
     }
 
