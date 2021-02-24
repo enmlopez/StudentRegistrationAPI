@@ -4,8 +4,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentRegistration.Data
 {
-
-
     public class Class
     {
         [Key]
@@ -20,7 +18,5 @@ namespace StudentRegistration.Data
         [ForeignKey(nameof(Course))]
         public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
-
-
     }
 }
