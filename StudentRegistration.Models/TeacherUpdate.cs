@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentRegistration.Data
+namespace StudentRegistration.Models
 {
-    public class Teacher
+    public class TeacherUpdate
     {
-        [Key]
         public int TeacherId { get; set; }
 
         [Required]

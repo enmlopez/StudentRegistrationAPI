@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRegistration.WebAPI", "StudentRegistration.WebAPI\StudentRegistration.WebAPI.csproj", "{AF0D5652-1EA3-4D5A-BE5B-F21F04F5498B}"
 EndProject
+
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRegistration.Data", "StudentRegistration.Data\StudentRegistration.Data.csproj", "{0E322936-30C9-45C0-822F-4D07B06AF2D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentRegistration.Models", "StudentRegistration.Models\StudentRegistration.Models.csproj", "{CB03B32C-1F64-4CF2-835C-33C676CD0B86}"

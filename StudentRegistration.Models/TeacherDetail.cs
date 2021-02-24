@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentRegistration.Data
+namespace StudentRegistration.Models
 {
-    public class Teacher
+    public class TeacherDetail
     {
-        [Key]
         public int TeacherId { get; set; }
-
-        [Required]
         public string FirstName { get; set; }
-
-        [Required]
         public string LastName { get; set; }
 
     }
