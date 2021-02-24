@@ -22,7 +22,7 @@ namespace StudentRegistration.Services
             var entity =
                 new Class()
                 {
-                    OwnerId = _userId,
+                   
                     Name = model.Name,
                    
                 };
@@ -40,17 +40,14 @@ namespace StudentRegistration.Services
                 var query =
                     ctx
                         .Class
-                        .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
                                 new ClassListItems
                                 {
-                                    Id = e.Id,
+                                    ClassId = e.ClassId,
                                     Name = e.Name
-                                    
                                 }
                         );
-
                 return query.ToArray();
             }
         }
