@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,9 +10,9 @@ namespace StudentRegistration.Data
     public class Class
     {
         [Key]
-        public int Id { get; set; }
+        public int ClassId { get; set; }
         [Required]
-        public Guid OwnerId { get; set; }
+       
         public string Name { get; set; }
         [ForeignKey(nameof(Teacher))]
         public int? TeacherId { get; set; }
@@ -20,6 +21,9 @@ namespace StudentRegistration.Data
         [ForeignKey(nameof(Course))]
         public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
+      //  public virtual List<Student> Students { get; set; }
+
+
 
 
     }

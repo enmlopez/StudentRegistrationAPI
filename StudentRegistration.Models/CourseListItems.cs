@@ -9,7 +9,7 @@ namespace StudentRegistration.Models
    public class CourseListItems
     {
        
-            public int Id { get; set; }
+            public int CourseId { get; set; }
             public string Title { get; set; }
 
             
