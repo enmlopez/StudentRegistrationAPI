@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using StudentRegistration.Data;
+
+
 
 namespace StudentRegistration.Data
 {
@@ -19,7 +22,14 @@ namespace StudentRegistration.Data
             // Add custom user claims here
             return userIdentity;
         }
-    }
+
+        //TODO add properties for student
+        public string First { get; set; }
+        public string Last { get; set; }
+        public string Major { get; set; }  
+        public string Year { get; set; }
+     }
+
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -27,7 +37,7 @@ namespace StudentRegistration.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -35,7 +45,7 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
-       // public DbSet<Student>Student { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
@@ -55,6 +65,7 @@ namespace StudentRegistration.Data
             HasKey(iul => iul.UserId);
         }
     }
+
     public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
     {
         public IdentityUserRoleConfiguration()
