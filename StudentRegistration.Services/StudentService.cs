@@ -36,6 +36,25 @@ namespace StudentRegistration.Services
             }
 
         }
+
+        public bool UpdateStudent(StudentUpdate model)
+        {
+
+            if (model is null)
+                return false;
+           
+            using (var ctx = new ApplicationDbContext())
+            {
+                ApplicationUser student = ctx.Users.FirstOrDefault(x => x.StudentId == model.StudentId);
+
+                student.First = model.FistName;
+                student.Last = model.LastName;
+                student.Year = model.Year;
+                student.Major = model.Major;
+
+                return ctx.SaveChanges() >= 1;
+            }
+        }
     }
 
 }
