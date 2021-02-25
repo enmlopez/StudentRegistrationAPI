@@ -8,7 +8,9 @@ namespace StudentRegistration.Models
 {
     public class TeacherListItem
     {
-        public int? CourseId { get; set; }
-        public string CourseTitle { get; set; }
+
+        public int TeacherId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }

@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentRegistration.Data
+namespace StudentRegistration.Models
 {
-    public class Teacher
+    public class TeacherUpdate
     {
-
-        [Key]
         public int TeacherId { get; set; }
 
         [Required]
@@ -19,7 +16,6 @@ namespace StudentRegistration.Data
 
         [Required]
         public string LastName { get; set; }
-
 
     }
 }
