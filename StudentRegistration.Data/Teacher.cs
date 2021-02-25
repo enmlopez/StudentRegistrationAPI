@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace StudentRegistration.Data
 {
     public class Teacher
     {
+
         [Key]
         public int TeacherId { get; set; }
 
@@ -17,6 +19,7 @@ namespace StudentRegistration.Data
 
         [Required]
         public string LastName { get; set; }
+
 
     }
 }

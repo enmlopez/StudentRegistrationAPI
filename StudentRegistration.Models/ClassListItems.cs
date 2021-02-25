@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Models
 {
-    public class TeacherListItem
+    public class ClassListItems
     {
+        public int ClassId { get; set; }
+        public string Name { get; set; }
 
-        public int TeacherId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
     }
 }
