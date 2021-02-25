@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using StudentRegistration.Models;
 using StudentRegistration.Services;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,21 @@ namespace StudentRegistration.WebAPI.Controllers
                 return Ok(student);
             else
                 return BadRequest("Could not find student");
+        }
+
+
+        [HttpPut]
+        public IHttpActionResult UpdateStudent(StudentUpdate student)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (! CreateStudentService().UpdateStudent(student))
+            {
+                return InternalServerError();
+            }
+            return Ok("Student updated");
         }
 
 
