@@ -22,6 +22,7 @@ namespace StudentRegistration.Data
         }
 
         //TODO add properties for student
+        public int StudentId { get; set; }
         public string First { get; set; }
         public string Last { get; set; }
         public string Major { get; set; }  
@@ -43,8 +44,9 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
+      
 
-       
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
