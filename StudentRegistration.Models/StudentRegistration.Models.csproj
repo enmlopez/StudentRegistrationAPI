@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassDetail.cs" />
+    <Compile Include="ClassEdit.cs" />
     <Compile Include="ClassListItems.cs" />
+    <Compile Include="CourseDetail.cs" />
+    <Compile Include="CourseEdit.cs" />
     <Compile Include="CourseListItems.cs" />
     <Compile Include="CourseCreate.cs" />
     <Compile Include="ClassCreate.cs" />
@@ -63,6 +67,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentRegistration.Data\StudentRegistration.Data.csproj">
+      <Project>{0e322936-30c9-45c0-822f-4d07b06af2d8}</Project>
+      <Name>StudentRegistration.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
