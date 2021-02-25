@@ -68,6 +68,5 @@ namespace StudentRegistration.WebAPI.Controllers
             }
             return Ok();
         }
-        //test ignore comment
     }
 }
