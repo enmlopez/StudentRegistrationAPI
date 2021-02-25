@@ -43,7 +43,7 @@ namespace StudentRegistration.Services
                             e =>
                                 new CourseListItems
                                 {
-                                    Id = e.Id,
+                                    CourseId = e.CourseId,
                                     Title = e.Title,
                                     
                                 }
