@@ -7,13 +7,13 @@ namespace StudentRegistration.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class initial1 : IMigrationMetadata
+    public sealed partial class changestostudent : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(changestostudent));
         
         string IMigrationMetadata.Id
         {
-            get { return "202102182329490_initial1"; }
+            get { return "202102252159013_changes to student"; }
         }
         
         string IMigrationMetadata.Source
