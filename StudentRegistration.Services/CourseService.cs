@@ -23,6 +23,7 @@ namespace StudentRegistration.Services
                 {
                     OwnerId = _userId,
                     Title = model.Title
+
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -45,11 +46,56 @@ namespace StudentRegistration.Services
                                 {
                                     CourseId = e.CourseId,
                                     Title = e.Title,
-                                    
                                 }
                         );
-
                 return query.ToArray();
+            }
+        }
+        public CourseDetail GetCourseeById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Course
+                        .Single(e => e.CourseId == id && e.OwnerId == _userId);
+                return
+                    new CourseDetail
+                    {
+                        CourseId = entity.CourseId,
+                        Title = entity.Title,
+                        //TeacherId = entity.TeacherId,
+                        //Teachers = new TeacherListItem() { TeacherId = entity.Teacher., Name = entity.Category.Name }
+                    };
+            }
+        }
+        public bool UpdateCourse(CourseEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Course
+                        .Single(e => e.CourseId == model.CourseId&& e.OwnerId == _userId);
+
+                entity.Title = model.Title;
+
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteCourse(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Course
+                        .Single(e => e.CourseId == Id && e.OwnerId == _userId);
+
+                ctx.Course.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
             }
         }
 
