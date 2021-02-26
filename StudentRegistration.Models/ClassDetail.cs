@@ -12,8 +12,11 @@ namespace StudentRegistration.Models
         public int ClassId { get; set; }
         public string Name { get; set; }
         public int? TeacherId { get; set; }
-        public virtual Teacher Teacher { get; set; }
+        public virtual TeacherListItem Teacher { get; set; }
         public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
+        public virtual CourseListItems Course { get; set; }
+        //public virtual List<Teacher> Teachers { get; set; }
+        //public virtual List<Student> Students { get; set; }
     }
 }

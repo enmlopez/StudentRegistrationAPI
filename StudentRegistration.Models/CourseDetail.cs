@@ -1,4 +1,4 @@
-﻿using StudentRegistration.Data;
+﻿//using StudentRegistration.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +12,7 @@ namespace StudentRegistration.Models
         public int CourseId { get; set; }
         public string Title { get; set; }       
         public virtual List<Teacher> Teachers { get; set; }
+        public int? TeacherId { get; set; }
+        public virtual List<TeacherListItem> Teachers { get; set; }
     }
 }
