@@ -48,6 +48,19 @@ namespace StudentRegistration.WebAPI.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        //TODO add custom properties here
+        [Required]
+        public int StudentId { get; set; }   
+        [Required]
+        public string First { get; set; }
+        [Required]
+        public string Last { get; set; }
+
+        public string Major { get; set; }
+
+        public string Year { get; set; }
+
     }
 
     public class RegisterExternalBindingModel

@@ -329,7 +329,7 @@ namespace StudentRegistration.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, StudentId = model.StudentId, Email = model.Email, First = model.First,Last = model.Last, Year = model.Year, Major = model.Major }; //TODO add properties here
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

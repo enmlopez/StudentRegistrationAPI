@@ -1,26 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentRegistration.Data
+namespace StudentRegistration.Models
 {
-    public class Teacher
+    public class TeacherCreate
     {
-        [Key]
-        public int TeacherId { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 
         [Required]
         public string LastName { get; set; }
-
-        [ForeignKey(nameof(Course))]
         public int? CourseId { get; set; }
-        public virtual Course Course { get; set; }
     }
 }
