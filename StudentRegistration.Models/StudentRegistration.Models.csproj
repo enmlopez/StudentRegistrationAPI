@@ -63,7 +63,9 @@
     <Compile Include="CourseCreate.cs" />
     <Compile Include="ClassCreate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
+    <Compile Include="StudentDetail.cs" />
+    <Compile Include="StudentListItem.cs" />
+    <Compile Include="StudentUpdate.cs" />
     <Compile Include="TeacherCreate.cs" />
     <Compile Include="TeacherDetail.cs" />
     <Compile Include="TeacherListItem.cs" />
