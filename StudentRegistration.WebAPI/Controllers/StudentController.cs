@@ -31,7 +31,7 @@ namespace StudentRegistration.WebAPI.Controllers
                 return BadRequest("Could not find student");
         }
 
-
+         
         [HttpGet]
         public IHttpActionResult GetAllStudents()
         {

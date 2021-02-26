@@ -17,7 +17,7 @@ namespace StudentRegistration.Services
         {
             _userId = userId;
         }
-
+         
         public IEnumerable<StudentListItem> GetStudents()
         {
             using (var ctx = new ApplicationDbContext())
