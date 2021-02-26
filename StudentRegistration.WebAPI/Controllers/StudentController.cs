@@ -32,6 +32,14 @@ namespace StudentRegistration.WebAPI.Controllers
         }
 
 
+        [HttpGet]
+        public IHttpActionResult GetAllStudents()
+        {
+            var students = CreateStudentService().GetStudents();
+            return Ok(students);
+        }
+
+
         [HttpPut]
         public IHttpActionResult UpdateStudent(StudentUpdate student)
         {

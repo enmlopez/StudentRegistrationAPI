@@ -18,6 +18,27 @@ namespace StudentRegistration.Services
             _userId = userId;
         }
 
+        public IEnumerable<StudentListItem> GetStudents()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Users
+                    .Select(
+                        e =>
+                        new StudentListItem
+                        {
+                            FistName = e.First,
+                            LastName = e.Last,
+                            Email = e.Email,
+                            Year = e.Year,
+                            Major = e.Major
+                        });
+                return query.ToArray();
+            }
+        }
+
         public StudentDetail GetStudentById(int studentid)
         {
             using (var ctx = new ApplicationDbContext())
