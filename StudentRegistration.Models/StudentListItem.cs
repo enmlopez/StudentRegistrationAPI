@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace StudentRegistration.Models
 {
     public class StudentListItem
-    {
+    { 
         public string FistName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

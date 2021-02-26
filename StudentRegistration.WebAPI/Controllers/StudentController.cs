@@ -13,7 +13,7 @@ namespace StudentRegistration.WebAPI.Controllers
     [Authorize]
     public class StudentController : ApiController
     {
-
+         
         
         [HttpGet]
         public IHttpActionResult GetStudentById(int studentId)

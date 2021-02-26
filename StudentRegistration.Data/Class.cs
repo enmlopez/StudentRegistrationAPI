@@ -20,5 +20,9 @@ namespace StudentRegistration.Data
         public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
 
+        [ForeignKey(nameof(ApplicationUser))]
+        public int? StudentId { get; set; }
+        public virtual ApplicationUser Student { get; set; }
+
     }
 }

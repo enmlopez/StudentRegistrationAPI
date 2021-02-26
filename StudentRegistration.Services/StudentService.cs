@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 namespace StudentRegistration.Services
 {
     public class StudentService
-    {
+    { 
         private readonly Guid _userId;
 
         public StudentService(Guid userId)
