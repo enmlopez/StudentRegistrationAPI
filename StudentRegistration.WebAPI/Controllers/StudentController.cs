@@ -13,7 +13,7 @@ namespace StudentRegistration.WebAPI.Controllers
     [Authorize]
     public class StudentController : ApiController
     {
-
+         
         
         [HttpGet]
         public IHttpActionResult GetStudentById(int studentId)
@@ -29,6 +29,14 @@ namespace StudentRegistration.WebAPI.Controllers
                 return Ok(student);
             else
                 return BadRequest("Could not find student");
+        }
+
+         
+        [HttpGet]
+        public IHttpActionResult GetAllStudents()
+        {
+            var students = CreateStudentService().GetStudents();
+            return Ok(students);
         }
 
 
