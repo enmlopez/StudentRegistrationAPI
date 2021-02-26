@@ -62,8 +62,8 @@ namespace StudentRegistration.WebAPI.Controllers
         private ClassService CreateClassService()
         {
             //var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new ClassService();
-            return noteService;
+            var classService = new ClassService();
+            return classService;
         }
     }
 }
