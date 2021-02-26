@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentRegistration.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,12 +11,9 @@ namespace StudentRegistration.Models
     public class TeacherUpdate
     {
         public int TeacherId { get; set; }
-
-        [Required]
         public string FirstName { get; set; }
-
-        [Required]
         public string LastName { get; set; }
-
+        public int? CourseId { get; set; }
+        public virtual Course Course { get; set; }
     }
 }

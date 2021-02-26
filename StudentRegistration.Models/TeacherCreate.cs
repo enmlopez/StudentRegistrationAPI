@@ -14,5 +14,6 @@ namespace StudentRegistration.Models
 
         [Required]
         public string LastName { get; set; }
+        public int? CourseId { get; set; }
     }
 }
