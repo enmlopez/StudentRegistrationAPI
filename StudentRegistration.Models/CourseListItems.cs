@@ -6,14 +6,9 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Models
 {
-   public class CourseListItems
+    public class CourseListItems
     {
-       
-            public int CourseId { get; set; }
-            public string Title { get; set; }
-
-            
-        
-
+        public int CourseId { get; set; }
+        public string Title { get; set; }
     }
 }

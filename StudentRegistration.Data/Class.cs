@@ -9,9 +9,10 @@ namespace StudentRegistration.Data
     {
         [Key]
         public int ClassId { get; set; }
+
         [Required]
-       
         public string Name { get; set; }
+
         [ForeignKey(nameof(Teacher))]
         public int? TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }

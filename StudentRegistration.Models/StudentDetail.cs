@@ -8,7 +8,6 @@ namespace StudentRegistration.Models
 {
     public class StudentDetail
     {
-         
         public string FistName { get; set; }
         public string LastName { get; set; }
         public string Year { get; set; }

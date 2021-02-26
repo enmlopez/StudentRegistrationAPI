@@ -16,9 +16,10 @@ namespace StudentRegistration.Services
                 new Teacher()
                 {
                     FirstName = model.FirstName,
-                    LastName = model.LastName
+                    LastName = model.LastName,
+                    CourseId = model.CourseId
                 };
-            
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Teachers.Add(entity);
@@ -39,7 +40,9 @@ namespace StudentRegistration.Services
                         {
                             TeacherId = e.TeacherId,
                             FirstName = e.FirstName,
-                            LastName = e.LastName
+                            LastName = e.LastName,
+                            CourseId = e.CourseId,
+                            CourseName = e.Course.Title
                         });
                 return query.ToArray();
             }
@@ -52,14 +55,26 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                     .Teachers
-                    .Single(e => e.TeacherId == id);
-                return new TeacherDetail()
+                    .SingleOrDefault(e => e.TeacherId == id);
+                if (entity.CourseId is null)
+                    return new TeacherDetail()
+                    {
+                        TeacherId = entity.TeacherId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        CourseId = null
+                    };
+                else
                 {
-                    TeacherId = entity.TeacherId,
-                    FirstName = entity.FirstName,
-                    LastName = entity.LastName
-
-                };
+                    return new TeacherDetail()
+                    {
+                        TeacherId = entity.TeacherId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName,
+                        CourseId = entity.CourseId,
+                        Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
+                    };
+                }
             }
         }
 
@@ -74,11 +89,12 @@ namespace StudentRegistration.Services
 
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
+                entity.CourseId = model.CourseId;
 
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+
         public bool DeleteTeacher(int teacherId)
         {
             using (var ctx = new ApplicationDbContext())
