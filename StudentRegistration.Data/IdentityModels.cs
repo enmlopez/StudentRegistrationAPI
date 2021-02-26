@@ -8,6 +8,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using StudentRegistration.Data;
 
+
+
 namespace StudentRegistration.Data
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
@@ -22,7 +24,6 @@ namespace StudentRegistration.Data
         }
 
         //TODO add properties for student
-        public int StudentId { get; set; }
         public string First { get; set; }
         public string Last { get; set; }
         public string Major { get; set; }  
@@ -44,9 +45,6 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
-      
-
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -60,8 +58,6 @@ namespace StudentRegistration.Data
                 .Add(new IdentityUserRoleConfiguration());
         }
     }
-    
-  
     public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
     {
         public IdentityUserLoginConfiguration()
