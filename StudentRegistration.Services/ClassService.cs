@@ -10,21 +10,12 @@ namespace StudentRegistration.Services
 {
     public class ClassService
     {
-        private readonly Guid _userId;
-
-        public ClassService(Guid userId)
-        {
-            _userId = userId;
-        }
-
         public bool CreateClass (ClassCreate model)
         {
             var entity =
                 new Class()
                 {
-                   
                     Name = model.Name,
-                   
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -51,5 +42,56 @@ namespace StudentRegistration.Services
                 return query.ToArray();
             }
         }
+        public ClassDetail GetClassById(int id)
+        {
+            
+                using (var ctx = new ApplicationDbContext())
+                {
+                    var entity =
+                        ctx.Class
+                        .Single(e => e.ClassId == id);
+                    return new ClassDetail()
+                    {
+                        ClassId = entity.ClassId,
+                        Name = entity.Name,
+                        TeacherId=entity.TeacherId,
+                       // Teacher = new TeacherListItem() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName,LastName=entity.Teacher.LastName },
+                        CourseId = entity.CourseId,
+                       //Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
+                    };
+                }
+            }
+        public bool UpdateNote(ClassEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Class
+                        .Single(e => e.ClassId == model.ClassId);
+
+                entity.Name = model.Name;
+                entity.TeacherId = model.TeacherId;
+                entity.CourseId = model.CourseId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteClass(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Class
+                        .Single(e => e.ClassId == noteId);
+
+                ctx.Class.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
