@@ -36,7 +36,9 @@ namespace StudentRegistration.Services
                                 new ClassListItems
                                 {
                                     ClassId = e.ClassId,
-                                    Name = e.Name
+                                    Name = e.Name,
+                                    TeacherId=e.TeacherId,
+                                    CourseId=e.CourseId
                                 }
                         );
                 return query.ToArray();

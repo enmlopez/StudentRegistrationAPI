@@ -45,7 +45,7 @@ namespace StudentRegistration.Services
                                 new CourseListItems
                                 {
                                     CourseId = e.CourseId,
-                                    Title = e.Title,
+                                    Title = e.Title
                                 }
                         );
                 return query.ToArray();
@@ -76,7 +76,7 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == model.CourseId&& e.OwnerId == _userId);
+                        .Single(e => e.CourseId == model.CourseId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
 
