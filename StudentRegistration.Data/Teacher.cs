@@ -19,5 +19,6 @@ namespace StudentRegistration.Data
 
         [Required]
         public string LastName { get; set; }
+        
     }
 }

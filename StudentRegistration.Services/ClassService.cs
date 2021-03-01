@@ -15,7 +15,7 @@ namespace StudentRegistration.Services
             var entity =
                 new Class()
                 {
-                    Name = model.Name,
+                    Name = model.Name
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -57,9 +57,10 @@ namespace StudentRegistration.Services
                         ClassId = entity.ClassId,
                         Name = entity.Name,
                         TeacherId=entity.TeacherId,
-                       // Teacher = new TeacherListItem() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName,LastName=entity.Teacher.LastName },
-                        CourseId = entity.CourseId,
-                       //Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
+                       CourseId = entity.CourseId,
+                       //Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title },
+                       //Teacher = new TeacherListItem() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName, LastName = entity.Teacher.LastName },
+
                     };
                 }
             }
@@ -79,7 +80,6 @@ namespace StudentRegistration.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public bool DeleteClass(int noteId)
         {
             using (var ctx = new ApplicationDbContext())

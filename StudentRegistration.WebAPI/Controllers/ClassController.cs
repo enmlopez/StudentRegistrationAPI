@@ -20,14 +20,14 @@ namespace StudentRegistration.WebAPI.Controllers
             var classs = classService.GetClass();
             return Ok(classs);
         }
-        public IHttpActionResult Post(ClassCreate note)
+        public IHttpActionResult Post(ClassCreate cla)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateClassService();
 
-            if (!service.CreateClass(note))
+            if (!service.CreateClass(cla))
                 return InternalServerError();
 
             return Ok();
@@ -38,14 +38,14 @@ namespace StudentRegistration.WebAPI.Controllers
             var cla = classService.GetClassById(id);
             return Ok(cla);
         }
-        public IHttpActionResult Put(ClassEdit note)
+        public IHttpActionResult Put(ClassEdit cla)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateClassService();
 
-            if (!service.UpdateNote(note))
+            if (!service.UpdateNote(cla))
                 return InternalServerError();
 
             return Ok();

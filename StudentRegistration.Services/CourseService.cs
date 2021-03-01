@@ -10,18 +10,18 @@ namespace StudentRegistration.Services
 {
     public class CourseService
     {
-        private readonly Guid _userId;
+       // private readonly Guid _userId;
 
-        public CourseService(Guid userId)
-        {
-            _userId = userId;
-        }
+        //public CourseService(Guid userId)
+        //{
+        //    _userId = userId;
+        //}
         public bool CreateCourse(CourseCreate model)
         {
             var entity =
                 new Course()
                 {
-                    OwnerId = _userId,
+                    
                     Title = model.Title
 
                 };
@@ -39,7 +39,7 @@ namespace StudentRegistration.Services
                 var query =
                     ctx
                         .Course
-                        .Where(e => e.OwnerId == _userId)
+                       
                         .Select(
                             e =>
                                 new CourseListItems
@@ -51,20 +51,20 @@ namespace StudentRegistration.Services
                 return query.ToArray();
             }
         }
-        public CourseDetail GetCourseeById(int id)
+        public CourseDetail GetCoursById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == id && e.OwnerId == _userId);
+                        .Single(e => e.CourseId == id );
                 return
                     new CourseDetail
                     {
                         CourseId = entity.CourseId,
-                        Title = entity.Title,
-                        //TeacherId = entity.TeacherId,
+                        Title = entity.Title
+                       // TeacherId = entity.TeacherId,
                         //Teachers = new TeacherListItem() { TeacherId = entity.Teacher., Name = entity.Category.Name }
                     };
             }
@@ -76,7 +76,7 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == model.CourseId && e.OwnerId == _userId);
+                        .Single(e => e.CourseId == model.CourseId );
 
                 entity.Title = model.Title;
 
@@ -91,7 +91,7 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == Id && e.OwnerId == _userId);
+                        .Single(e => e.CourseId == Id);
 
                 ctx.Course.Remove(entity);
 
