@@ -14,7 +14,7 @@ namespace StudentRegistration.WebAPI.Controllers
         private TeacherService _teacherService = new TeacherService();
 
         [HttpPost]
-        public IHttpActionResult Post (TeacherCreate teacher)
+        public IHttpActionResult Post(TeacherCreate teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -34,6 +34,7 @@ namespace StudentRegistration.WebAPI.Controllers
             return Ok(teachers);
         }
 
+        [Route("api/Teacher/{teacherId}")]
         [HttpGet]
         public IHttpActionResult GetTeacherId([FromUri] int teacherId)
         {
@@ -42,6 +43,11 @@ namespace StudentRegistration.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
             var teacher = _teacherService.GetTeacherById(teacherId);
+
+            //if (teacher is null) // need to edit - if teacherId is not found rather than teacher
+            //{
+            //    throw new HttpResponseException(HttpStatusCode.NotFound);
+            //}
             return Ok(teacher);
         }
 
@@ -59,6 +65,7 @@ namespace StudentRegistration.WebAPI.Controllers
             return Ok();
         }
 
+        [Route("api/Teacher/{teacherId}")]
         [HttpDelete]
         public IHttpActionResult DeleteTeacher(int teacherId)
         {

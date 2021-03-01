@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentRegistration.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,8 @@ namespace StudentRegistration.Models
         public string Email { get; set; }
         public string Year { get; set; }
         public string Major { get; set; }
+        public int? ClassId { get; set; }
+        public string ClassName { get; set; }
+
     }
 }

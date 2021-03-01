@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace StudentRegistration.Services
 {
@@ -26,7 +27,6 @@ namespace StudentRegistration.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public IEnumerable<TeacherListItem> GetTeachers()
         {
             using (var ctx = new ApplicationDbContext())
@@ -47,7 +47,6 @@ namespace StudentRegistration.Services
                 return query.ToArray();
             }
         }
-
         public TeacherDetail GetTeacherById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -56,28 +55,27 @@ namespace StudentRegistration.Services
                     ctx
                     .Teachers
                     .SingleOrDefault(e => e.TeacherId == id);
-                if (entity.CourseId is null)
+                //if (entity.CourseId is null)
+                //    return new TeacherDetail()
+                //    {
+                //        TeacherId = entity.TeacherId,
+                //        FirstName = entity.FirstName,
+                //        LastName = entity.LastName,
+                //        CourseId = null
+                //    };
+                //else
+                //{
                     return new TeacherDetail()
                     {
                         TeacherId = entity.TeacherId,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
-                        CourseId = null
-                    };
-                else
-                {
-                    return new TeacherDetail()
-                    {
-                        TeacherId = entity.TeacherId,
-                        FirstName = entity.FirstName,
-                        LastName = entity.LastName,
-                        CourseId = entity.CourseId,
+                        //CourseId = entity.CourseId,
                         Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
                     };
-                }
+                //}
             }
         }
-
         public bool UpdateTeacher(TeacherUpdate model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -94,7 +92,6 @@ namespace StudentRegistration.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
         public bool DeleteTeacher(int teacherId)
         {
             using (var ctx = new ApplicationDbContext())

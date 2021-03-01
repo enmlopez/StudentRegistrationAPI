@@ -10,60 +10,111 @@ using System.Web.Http;
 namespace StudentRegistration.WebAPI.Controllers
 {
     public class ClassController:ApiController
-
     {
+        //Erase if not working
+        private ClassService _classService = new ClassService();
 
-        [Authorize]
+        [HttpPost]
+        public IHttpActionResult Post(ClassCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (!_classService.CreateClass(model))
+            {
+                return InternalServerError();
+            }
+            return Ok();
+        }
+        [HttpGet]
         public IHttpActionResult Get()
         {
-            ClassService classService = CreateClassService();
-            var classs = classService.GetClass();
-            return Ok(classs);
+            var getClass = _classService.GetClass();
+            return Ok(getClass);
         }
-        public IHttpActionResult Post(ClassCreate note)
+        [Route("api/Class/{classId}")]
+        [HttpGet]
+        public IHttpActionResult GetClassById(int classId)
+        {
+            var getClass = _classService.GetClassById(classId);
+            return Ok(getClass);
+        }
+        [HttpPut]
+        public IHttpActionResult UpdateClass(ClassEdit model)
         {
             if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
-
-            var service = CreateClassService();
-
-            if (!service.CreateClass(note))
+            }
+            if (!_classService.UpdateClass(model))
+            {
                 return InternalServerError();
-
+            }
             return Ok();
         }
-        public IHttpActionResult Get(int id)
+        [HttpDelete]
+        public IHttpActionResult DeleteClass (int classId)
         {
-            ClassService classService = CreateClassService();
-            var cla = classService.GetClassById(id);
-            return Ok(cla);
-        }
-        public IHttpActionResult Put(ClassEdit note)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var service = CreateClassService();
-
-            if (!service.UpdateNote(note))
+            if (!_classService.DeleteClass(classId))
+            {
                 return InternalServerError();
-
+            }
             return Ok();
         }
-        public IHttpActionResult Delete(int id)
-        {
-            var service = CreateClassService();
+        //Erase above if not working
 
-            if (!service.DeleteClass(id))
-                return InternalServerError();
+        //[Authorize]
+        //public IHttpActionResult Get()
+        //{
+        //    ClassService classService = CreateClassService();
+        //    var classs = classService.GetClass();
+        //    return Ok(classs);
+        //}
+        //public IHttpActionResult Post(ClassCreate note)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
 
-            return Ok();
-        }
-        private ClassService CreateClassService()
-        {
-            //var userId = Guid.Parse(User.Identity.GetUserId());
-            var noteService = new ClassService();
-            return noteService;
-        }
+        //    var service = CreateClassService();
+
+        //    if (!service.CreateClass(note))
+        //        return InternalServerError();
+
+        //    return Ok();
+        //}
+        //public IHttpActionResult Get(int id)
+        //{
+        //    ClassService classService = CreateClassService();
+        //    var cla = classService.GetClassById(id);
+        //    return Ok(cla);
+        //}
+        //public IHttpActionResult Put(ClassEdit note)
+        //{
+        //    if (!ModelState.IsValid)
+        //        return BadRequest(ModelState);
+
+        //    var service = CreateClassService();
+
+        //    if (!service.UpdateNote(note))
+        //        return InternalServerError();
+
+        //    return Ok();
+        //}
+        //public IHttpActionResult Delete(int id)
+        //{
+        //    var service = CreateClassService();
+
+        //    if (!service.DeleteClass(id))
+        //        return InternalServerError();
+
+        //    return Ok();
+        //}
+        //private ClassService CreateClassService()
+        //{
+        //    //var userId = Guid.Parse(User.Identity.GetUserId());
+        //    var noteService = new ClassService();
+        //    return noteService;
+        //}
     }
 }
