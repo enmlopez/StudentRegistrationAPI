@@ -44,34 +44,34 @@ namespace StudentRegistration.WebAPI.Controllers
             }
             var teacher = _teacherService.GetTeacherById(teacherId);
 
-            //if (teacher is null) // need to edit - if teacherId is not found rather than teacher
-            //{
-            //    throw new HttpResponseException(HttpStatusCode.NotFound);
-            //}
+            if (teacher is null)
+            {
+                return BadRequest($"ID #{teacherId} not found in database.");
+            }
             return Ok(teacher);
         }
 
         [HttpPut]
-        public IHttpActionResult UpdateTeacher(TeacherUpdate teacher)
+        public IHttpActionResult UpdateTeacher([FromBody]TeacherUpdate teacher)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (!_teacherService.UpdateTeacher(teacher))
+            if (_teacherService.UpdateTeacher(teacher) is null)
             {
-                return InternalServerError();
+                return BadRequest($"ID #{teacher.TeacherId} does not exist in the database.");
             }
             return Ok();
         }
 
         [Route("api/Teacher/{teacherId}")]
         [HttpDelete]
-        public IHttpActionResult DeleteTeacher(int teacherId)
+        public IHttpActionResult DeleteTeacher([FromUri]int teacherId)
         {
             if (!_teacherService.DeleteTeacher(teacherId))
             {
-                return InternalServerError();
+                return BadRequest($"ID #{teacherId} does not exist.  Cannot Delete");
             }
             return Ok();
         }

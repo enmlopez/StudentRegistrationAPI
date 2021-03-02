@@ -3,6 +3,7 @@ using StudentRegistration.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -55,41 +56,37 @@ namespace StudentRegistration.Services
                     ctx
                     .Teachers
                     .SingleOrDefault(e => e.TeacherId == id);
-                //if (entity.CourseId is null)
-                //    return new TeacherDetail()
-                //    {
-                //        TeacherId = entity.TeacherId,
-                //        FirstName = entity.FirstName,
-                //        LastName = entity.LastName,
-                //        CourseId = null
-                //    };
-                //else
-                //{
+                if (entity != null)
+                {
                     return new TeacherDetail()
                     {
                         TeacherId = entity.TeacherId,
                         FirstName = entity.FirstName,
                         LastName = entity.LastName,
-                        //CourseId = entity.CourseId,
                         Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
                     };
-                //}
+                }
+                return null;
             }
         }
-        public bool UpdateTeacher(TeacherUpdate model)
+        public Teacher UpdateTeacher(TeacherUpdate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Teachers
-                    .Single(e => e.TeacherId == model.TeacherId);
+                    .SingleOrDefault(e => e.TeacherId == model.TeacherId);
 
-                entity.FirstName = model.FirstName;
-                entity.LastName = model.LastName;
-                entity.CourseId = model.CourseId;
+                if (entity != null)
+                {
+                    entity.FirstName = model.FirstName;
+                    entity.LastName = model.LastName;
+                    entity.CourseId = model.CourseId;
 
-                return ctx.SaveChanges() == 1;
+                    ctx.SaveChanges();
+                }
+                return null;
             }
         }
         public bool DeleteTeacher(int teacherId)
@@ -99,11 +96,15 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                     .Teachers
-                    .Single(e => e.TeacherId == teacherId);
+                    .SingleOrDefault(e => e.TeacherId == teacherId);
 
-                ctx.Teachers.Remove(entity);
+                if (entity != null)
+                {
+                    ctx.Teachers.Remove(entity);
 
-                return ctx.SaveChanges() == 1;
+                    return ctx.SaveChanges() == 1;
+                }
+                return false;
             }
         }
     }
