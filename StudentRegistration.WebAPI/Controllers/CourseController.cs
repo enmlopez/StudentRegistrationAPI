@@ -2,15 +2,12 @@
 using StudentRegistration.Models;
 using StudentRegistration.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace StudentRegistration.WebAPI.Controllers
 {
     [Authorize]
-    public class CourseController:ApiController
+    public class CourseController : ApiController
     {
         public IHttpActionResult Get()
         {
@@ -40,7 +37,7 @@ namespace StudentRegistration.WebAPI.Controllers
         public IHttpActionResult Get(int id)
         {
             CourseService courseService = CreateCourseService();
-            var course = courseService.GetCourseeById(id);
+            var course = courseService.GetCourseById(id);
             return Ok(course);
         }
         public IHttpActionResult Put(CourseEdit course)
