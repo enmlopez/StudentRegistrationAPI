@@ -51,21 +51,29 @@ namespace StudentRegistration.Services
                 return query.ToArray();
             }
         }
-        public CourseDetail GetCourseeById(int id)
+        public CourseDetail GetCourseById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == id && e.OwnerId == _userId);
+                        .SingleOrDefault(e => e.CourseId == id && e.OwnerId == _userId);
                 return
                     new CourseDetail
                     {
                         CourseId = entity.CourseId,
                         Title = entity.Title,
-                        //TeacherId = entity.TeacherId,
-                        //Teachers = new TeacherListItem() { TeacherId = entity.Teacher., Name = entity.Category.Name }
+                        Teachers = entity.Teachers
+                        .Select(e =>
+                        new TeacherListItem
+                        {
+                            TeacherId = e.TeacherId,
+                            FirstName = e.FirstName,
+                            LastName = e.LastName,
+                            CourseId = e.CourseId,
+                            CourseName = e.Course.Title
+                        }).ToList()
                     };
             }
         }
@@ -76,7 +84,7 @@ namespace StudentRegistration.Services
                 var entity =
                     ctx
                         .Course
-                        .Single(e => e.CourseId == model.CourseId&& e.OwnerId == _userId);
+                        .Single(e => e.CourseId == model.CourseId && e.OwnerId == _userId);
 
                 entity.Title = model.Title;
 
