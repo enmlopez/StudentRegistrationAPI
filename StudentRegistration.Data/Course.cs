@@ -11,8 +11,8 @@ namespace StudentRegistration.Data
     {
         [Key]
         public int CourseId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
+      //  [Required]
+      //  public Guid OwnerId { get; set; }
         [Required]
         public string Title { get; set; }
         public virtual List<Teacher> Teachers { get; set; }

@@ -30,14 +30,14 @@ namespace StudentRegistration.WebAPI.Controllers
         private CourseService CreateCourseService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var courseService = new CourseService(userId);
+            var courseService = new CourseService();
             return courseService;
         }
 
         public IHttpActionResult Get(int id)
         {
             CourseService courseService = CreateCourseService();
-            var course = courseService.GetCourseById(id);
+            var course = courseService.GetCoursById(id);
             return Ok(course);
         }
         public IHttpActionResult Put(CourseEdit course)
