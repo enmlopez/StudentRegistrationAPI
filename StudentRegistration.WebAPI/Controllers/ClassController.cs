@@ -21,6 +21,10 @@ namespace StudentRegistration.WebAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
+            if (model == null)
+            {
+                return BadRequest("Are you putting all the class information correctly?  Model cannot be null.");
+            }
             if (!_classService.CreateClass(model))
             {
                 return InternalServerError();
