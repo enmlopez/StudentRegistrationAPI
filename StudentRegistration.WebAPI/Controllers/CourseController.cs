@@ -29,7 +29,7 @@ namespace StudentRegistration.WebAPI.Controllers
         }
         private CourseService CreateCourseService()
         {
-            var userId = Guid.Parse(User.Identity.GetUserId());
+            //var userId = Guid.Parse(User.Identity.GetUserId());
             var courseService = new CourseService();
             return courseService;
         }
