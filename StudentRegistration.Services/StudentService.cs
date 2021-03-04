@@ -51,13 +51,20 @@ namespace StudentRegistration.Services
                     LastName = student.Last,
                     Year = student.Year,
                     Major = student.Major,
-                    //Class = new ClassListItems() { Name = student.Classes.Name, ClassId=student.Classes.ClassId}
+                    Class = student.Classes
+                    .Select(e =>
+                        new ClassStudentListItem
+                        {
+                            ClassId = e.ClassId,
+                            Name = e.Name,
+                            CourseId = e.CourseId,
+                            TeacherId= e.TeacherId
+                        }).ToList()
                 };
             }
         }
         public bool UpdateStudent(StudentUpdate model)
         {
-
             if (model is null)
                 return false;
 

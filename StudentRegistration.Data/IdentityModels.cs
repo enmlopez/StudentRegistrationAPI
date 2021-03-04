@@ -50,8 +50,6 @@ namespace StudentRegistration.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //erase if doesnt work
-            //
             modelBuilder
             .Conventions
             .Remove<PluralizingTableNameConvention>();
