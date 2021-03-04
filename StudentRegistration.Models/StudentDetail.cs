@@ -12,6 +12,6 @@ namespace StudentRegistration.Models
         public string LastName { get; set; }
         public string Year { get; set; }
         public string Major { get; set; }
-        public virtual ClassListItems Class {get;set;}
+        public virtual List<ClassStudentListItem> Class {get;set;}
     }
 }

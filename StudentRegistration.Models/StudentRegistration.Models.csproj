@@ -66,6 +66,7 @@
     <Compile Include="ClassDetail.cs" />
     <Compile Include="ClassEdit.cs" />
     <Compile Include="ClassListItems.cs" />
+    <Compile Include="ClassStudentListItem.cs" />
     <Compile Include="CourseClassDetail.cs" />
     <Compile Include="CourseDetail.cs" />
     <Compile Include="CourseEdit.cs" />

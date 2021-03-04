@@ -51,13 +51,15 @@ namespace StudentRegistration.WebAPI.Models
 
         //TODO add custom properties here
         [Required]
+        public int StudentId { get; set; }
+        [Required]
         public string First { get; set; }
         [Required]
         public string Last { get; set; }
 
         public string Major { get; set; }
 
-        public string year { get; set; }
+        public string Year { get; set; }
 
     }
 
