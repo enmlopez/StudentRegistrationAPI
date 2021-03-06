@@ -72,7 +72,7 @@ namespace StudentRegistration.Services
             {
                 ApplicationUser student = ctx.Users.FirstOrDefault(x => x.StudentId == model.StudentId);
 
-                student.First = model.FistName;
+                student.First = model.FirstName;
                 student.Last = model.LastName;
                 student.Year = model.Year;
                 student.Major = model.Major;

@@ -10,7 +10,7 @@ namespace StudentRegistration.Models
     {
          
         public int StudentId { get; set; }
-        public string FistName { get; set; }
+        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Year { get; set; }
         public string Major { get; set; }
