@@ -41,7 +41,7 @@ namespace StudentRegistration.Services
 
         public StudentDetail GetStudentById(int studentid)
         {
-             using (var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 ApplicationUser student = ctx.Users.FirstOrDefault(x => x.StudentId == studentid);
 
@@ -51,10 +51,20 @@ namespace StudentRegistration.Services
                     LastName = student.Last,
                     Year = student.Year,
                     Major = student.Major,
-                    
+                    Class = student.Classes
+                    .Select(e =>
+                    new ClassStudentListItem
+                    {
+                        ClassId = e.ClassId,
+                        Name = e.Name,
+                        CourseId = e.CourseId,
+                        TeacherId = e.TeacherId,
+                        DepartmentId = e.DepartmentId
+                    }).ToList()
                 };
             }
         }
+
         public bool UpdateStudent(StudentUpdate model)
         {
             if (model is null)
