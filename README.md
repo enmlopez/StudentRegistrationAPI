@@ -3,13 +3,16 @@
 ## Solution Layer
 
     1. Data This is where we setup our database using Entity Framework
-          a. Create
-          b. Detail
-          c. Edit
-          d. ListItems
+         i. Class
+         ii. Course
+         iii. Department
+         iv. Teacher
    
     2. Models The messenger that helps the data and presentation tiers communicate. Examples of services include authentication and authorization
-    
+         a. Create
+         b. Detail
+         c. Edit
+         d. ListItems
     3. Services View Models represent the data that we want to show on the page. They are useful because you can pull specific properties from multiple tables
   
     4. API file This is the API part of our application. You might also see this referred to as the presentation tier.
