@@ -13,6 +13,7 @@ namespace StudentRegistration.WebAPI.Controllers
     [Authorize]
     public class StudentController : ApiController
     {
+        [Route ("api/Student/{studentId}")]
         [HttpGet]
         public IHttpActionResult GetStudentById(int studentId)
         {

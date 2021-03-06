@@ -85,6 +85,7 @@ namespace StudentRegistration.Services
                     entity.CourseId = model.CourseId;
 
                     ctx.SaveChanges();
+                    return entity;
                 }
                 return null;
             }

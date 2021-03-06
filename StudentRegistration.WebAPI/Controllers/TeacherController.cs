@@ -24,7 +24,7 @@ namespace StudentRegistration.WebAPI.Controllers
             {
                 return InternalServerError();
             }
-            return Ok();
+            return Ok($"Teacher {teacher.FirstName} {teacher.LastName} was created");
         }
 
         [HttpGet]
@@ -62,7 +62,7 @@ namespace StudentRegistration.WebAPI.Controllers
             {
                 return BadRequest($"ID #{teacher.TeacherId} does not exist in the database.");
             }
-            return Ok();
+            return Ok($"Teacher #{teacher.TeacherId} was successfully updated");
         }
 
         [Route("api/Teacher/{teacherId}")]
@@ -73,7 +73,7 @@ namespace StudentRegistration.WebAPI.Controllers
             {
                 return BadRequest($"ID #{teacherId} does not exist.  Cannot Delete");
             }
-            return Ok();
+            return Ok($"Teacher #{teacherId} was deleted");
         }
     }
 }

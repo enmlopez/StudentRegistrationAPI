@@ -57,6 +57,7 @@ namespace StudentRegistration.WebAPI.Controllers
             }
             return Ok();
         }
+        [Route("api/Class/{classId}")]
         [HttpDelete]
         public IHttpActionResult DeleteClass (int classId)
         {
