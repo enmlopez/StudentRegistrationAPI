@@ -18,7 +18,8 @@ namespace StudentRegistration.Services
                     Name = model.Name,
                     TeacherId = model.TeacherId,
                     CourseId = model.CourseId,
-                    Id = model.StudentId
+                    Id = model.StudentId,
+                    DepartmentId = model.DepartmentId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -42,7 +43,8 @@ namespace StudentRegistration.Services
                                     Name = e.Name,
                                     CourseId = e.CourseId,
                                     TeacherId = e.TeacherId,
-                                    StudentId = e.Id
+                                    StudentId = e.Id,
+                                    DepartmentId = e.DepartmentId
                                 }
                         );
                 return query.ToArray();
@@ -62,7 +64,8 @@ namespace StudentRegistration.Services
                     Name = entity.Name,
                     Teacher = new TeacherClassDetail() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName, LastName = entity.Teacher.LastName },
                     Course = new CourseClassDetail() { CourseId = entity.Course.CourseId, Title = entity.Course.Title },
-                    Student = new StudentClassDetail() { FirstName = entity.ApplicationUser.First, LastName = entity.ApplicationUser.Last, StudentId = entity.ApplicationUser.Id }
+                    Student = new StudentClassDetail() { FirstName = entity.ApplicationUser.First, LastName = entity.ApplicationUser.Last, StudentId = entity.ApplicationUser.Id },
+                    Department = new DepartmentClassDetail() { DepartmentId=entity.Department.DepartmentId,Name = entity.Department.Name,Building = entity.Department.Building}
                 };
             }
         }
@@ -79,6 +82,7 @@ namespace StudentRegistration.Services
                 entity.TeacherId = model.TeacherId;
                 entity.CourseId = model.CourseId;
                 entity.Id = model.StudentId;
+                entity.DepartmentId = model.DepartmentId;
 
                 return ctx.SaveChanges() == 1;
             }

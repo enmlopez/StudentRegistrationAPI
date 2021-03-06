@@ -73,6 +73,7 @@
     <Compile Include="CourseListItems.cs" />
     <Compile Include="CourseCreate.cs" />
     <Compile Include="ClassCreate.cs" />
+    <Compile Include="DepartmentClassDetail.cs" />
     <Compile Include="DepartmentCreate.cs" />
     <Compile Include="DepartmentListItem.cs" />
     <Compile Include="DepartmentUpdate.cs" />

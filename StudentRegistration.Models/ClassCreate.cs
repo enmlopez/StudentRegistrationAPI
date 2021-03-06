@@ -22,5 +22,8 @@ namespace StudentRegistration.Models
 
         [Required]
         public string StudentId { get; set; }
+
+        [Required]
+        public int? DepartmentId { get; set; }
     }
 }
