@@ -8,18 +8,12 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Models
 {
-    public class TeacherUpdate
+    public class DepartmentCreate
     {
         [Required]
-        public int TeacherId { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        public string FirstName { get; set; }
-
-        [Required]
-        public string LastName { get; set; }
-
-        [Required]
-        public int? CourseId { get; set; }
+        public string Building { get; set; }
     }
 }

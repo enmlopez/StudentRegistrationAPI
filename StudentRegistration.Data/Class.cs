@@ -12,7 +12,7 @@ namespace StudentRegistration.Data
 
         [Required]
         public string Name { get; set; }
-
+        
         [ForeignKey(nameof(Teacher))]
         public int? TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
@@ -21,9 +21,14 @@ namespace StudentRegistration.Data
         public int? CourseId { get; set; }
         public virtual Course Course { get; set; }
 
+        [ForeignKey(nameof(Department))]
+        public int? DepartmentId { get; set; }
+        public virtual Department Department { get; set; }
+
         [ForeignKey(nameof(ApplicationUser))]
-        public int? StudentId { get; set; }
-        public virtual ApplicationUser Student { get; set; }
+        public string Id { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
     }
+
 }

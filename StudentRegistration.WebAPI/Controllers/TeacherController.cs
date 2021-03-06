@@ -14,7 +14,7 @@ namespace StudentRegistration.WebAPI.Controllers
         private TeacherService _teacherService = new TeacherService();
 
         [HttpPost]
-        public IHttpActionResult Post (TeacherCreate teacher)
+        public IHttpActionResult Post(TeacherCreate teacher)
         {
             if (!ModelState.IsValid)
             {
@@ -24,7 +24,7 @@ namespace StudentRegistration.WebAPI.Controllers
             {
                 return InternalServerError();
             }
-            return Ok();
+            return Ok($"Teacher {teacher.FirstName} {teacher.LastName} was created");
         }
 
         [HttpGet]
@@ -34,6 +34,7 @@ namespace StudentRegistration.WebAPI.Controllers
             return Ok(teachers);
         }
 
+        [Route("api/Teacher/{teacherId}")]
         [HttpGet]
         public IHttpActionResult GetTeacherId([FromUri] int teacherId)
         {
@@ -42,31 +43,37 @@ namespace StudentRegistration.WebAPI.Controllers
                 return BadRequest(ModelState);
             }
             var teacher = _teacherService.GetTeacherById(teacherId);
+
+            if (teacher is null)
+            {
+                return BadRequest($"ID #{teacherId} not found in database.");
+            }
             return Ok(teacher);
         }
 
         [HttpPut]
-        public IHttpActionResult UpdateTeacher(TeacherUpdate teacher)
+        public IHttpActionResult UpdateTeacher([FromBody]TeacherUpdate teacher)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            if (!_teacherService.UpdateTeacher(teacher))
+            if (_teacherService.UpdateTeacher(teacher) is null)
             {
-                return InternalServerError();
+                return BadRequest($"ID #{teacher.TeacherId} does not exist in the database.");
             }
-            return Ok();
+            return Ok($"Teacher #{teacher.TeacherId} was successfully updated");
         }
 
+        [Route("api/Teacher/{teacherId}")]
         [HttpDelete]
-        public IHttpActionResult DeleteTeacher(int teacherId)
+        public IHttpActionResult DeleteTeacher([FromUri]int teacherId)
         {
             if (!_teacherService.DeleteTeacher(teacherId))
             {
-                return InternalServerError();
+                return BadRequest($"ID #{teacherId} does not exist.  Cannot Delete");
             }
-            return Ok();
+            return Ok($"Teacher #{teacherId} was deleted");
         }
     }
 }

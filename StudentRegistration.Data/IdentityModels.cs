@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; 
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
@@ -22,11 +25,13 @@ namespace StudentRegistration.Data
         }
 
         //TODO add properties for student
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StudentId { get; set; }
         public string First { get; set; }
         public string Last { get; set; }
         public string Major { get; set; }  
         public string Year { get; set; }
+        public virtual List<Class> Classes { get; set; }
      }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -44,6 +49,7 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -55,6 +61,8 @@ namespace StudentRegistration.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
   

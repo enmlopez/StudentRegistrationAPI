@@ -10,12 +10,16 @@ namespace StudentRegistration.Services
 {
     public class ClassService
     {
-        public bool CreateClass (ClassCreate model)
+        public bool CreateClass(ClassCreate model)
         {
             var entity =
                 new Class()
                 {
                     Name = model.Name,
+                    TeacherId = model.TeacherId,
+                    CourseId = model.CourseId,
+                    Id = model.StudentId,
+                    DepartmentId = model.DepartmentId
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -36,7 +40,11 @@ namespace StudentRegistration.Services
                                 new ClassListItems
                                 {
                                     ClassId = e.ClassId,
-                                    Name = e.Name
+                                    Name = e.Name,
+                                    CourseId = e.CourseId,
+                                    TeacherId = e.TeacherId,
+                                    StudentId = e.Id,
+                                    DepartmentId = e.DepartmentId
                                 }
                         );
                 return query.ToArray();
@@ -44,24 +52,24 @@ namespace StudentRegistration.Services
         }
         public ClassDetail GetClassById(int id)
         {
-            
-                using (var ctx = new ApplicationDbContext())
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx.Class
+                    .Single(e => e.ClassId == id);
+                return new ClassDetail()
                 {
-                    var entity =
-                        ctx.Class
-                        .Single(e => e.ClassId == id);
-                    return new ClassDetail()
-                    {
-                        ClassId = entity.ClassId,
-                        Name = entity.Name,
-                        TeacherId=entity.TeacherId,
-                       // Teacher = new TeacherListItem() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName,LastName=entity.Teacher.LastName },
-                        CourseId = entity.CourseId,
-                       //Course = new CourseListItems() { CourseId = entity.Course.CourseId, Title = entity.Course.Title }
-                    };
-                }
+                    ClassId = entity.ClassId,
+                    Name = entity.Name,
+                    Teacher = new TeacherClassDetail() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName, LastName = entity.Teacher.LastName },
+                    Course = new CourseClassDetail() { CourseId = entity.Course.CourseId, Title = entity.Course.Title },
+                    Student = new StudentClassDetail() { FirstName = entity.ApplicationUser.First, LastName = entity.ApplicationUser.Last, StudentId = entity.ApplicationUser.Id },
+                    Department = new DepartmentClassDetail() { DepartmentId=entity.Department.DepartmentId,Name = entity.Department.Name,Building = entity.Department.Building}
+                };
             }
-        public bool UpdateNote(ClassEdit model)
+        }
+        public bool UpdateClass(ClassEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -73,19 +81,21 @@ namespace StudentRegistration.Services
                 entity.Name = model.Name;
                 entity.TeacherId = model.TeacherId;
                 entity.CourseId = model.CourseId;
+                entity.Id = model.StudentId;
+                entity.DepartmentId = model.DepartmentId;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteClass(int noteId)
+        public bool DeleteClass(int classId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Class
-                        .Single(e => e.ClassId == noteId);
+                        .Single(e => e.ClassId == classId);
 
                 ctx.Class.Remove(entity);
 
