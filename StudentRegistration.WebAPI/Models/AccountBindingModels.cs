@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Newtonsoft.Json;
 
 namespace StudentRegistration.WebAPI.Models
@@ -50,6 +51,8 @@ namespace StudentRegistration.WebAPI.Models
         public string ConfirmPassword { get; set; }
 
         //TODO add custom properties here
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int StudentId { get; set; }
         [Required]
         public string First { get; set; }
         [Required]
@@ -57,7 +60,7 @@ namespace StudentRegistration.WebAPI.Models
 
         public string Major { get; set; }
 
-        public string year { get; set; }
+        public string Year { get; set; }
 
     }
 

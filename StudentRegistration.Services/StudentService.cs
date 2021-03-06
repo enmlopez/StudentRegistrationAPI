@@ -51,7 +51,7 @@ namespace StudentRegistration.Services
                     LastName = student.Last,
                     Year = student.Year,
                     Major = student.Major,
-                    //Class = new ClassListItems() { Name = student.Classes.Name, ClassId=student.Classes.ClassId}
+                    
                 };
             }
         }
