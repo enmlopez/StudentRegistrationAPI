@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema; 
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -53,8 +53,6 @@ namespace StudentRegistration.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //erase if doesnt work
-            //
             modelBuilder
             .Conventions
             .Remove<PluralizingTableNameConvention>();

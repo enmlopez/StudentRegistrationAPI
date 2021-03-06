@@ -41,7 +41,7 @@ namespace StudentRegistration.Services
 
         public StudentDetail GetStudentById(int studentid)
         {
-            using (var ctx = new ApplicationDbContext())
+             using (var ctx = new ApplicationDbContext())
             {
                 ApplicationUser student = ctx.Users.FirstOrDefault(x => x.StudentId == studentid);
 
@@ -57,7 +57,6 @@ namespace StudentRegistration.Services
         }
         public bool UpdateStudent(StudentUpdate model)
         {
-
             if (model is null)
                 return false;
 
@@ -65,7 +64,7 @@ namespace StudentRegistration.Services
             {
                 ApplicationUser student = ctx.Users.FirstOrDefault(x => x.StudentId == model.StudentId);
 
-                student.First = model.FistName;
+                student.First = model.FirstName;
                 student.Last = model.LastName;
                 student.Year = model.Year;
                 student.Major = model.Major;
