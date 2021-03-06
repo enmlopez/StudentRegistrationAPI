@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Data
 {
-    public class Course
+    public class Department
     {
         [Key]
-        public int CourseId { get; set; }
-      
+        public int DepartmentId { get; set; }
+
         [Required]
-        public string Title { get; set; }
-        public virtual List<Teacher> Teachers { get; set; }
+        public string Name { get; set; }
+
+        [Required]
+        public string Building { get; set; }
+
     }
 }

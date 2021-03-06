@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema; //databasegenerated//
+using System.ComponentModel.DataAnnotations.Schema; 
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -49,6 +49,7 @@ namespace StudentRegistration.Data
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Class> Class { get; set; }
         public DbSet<Course> Course { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
