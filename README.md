@@ -83,6 +83,7 @@ StudentRegistrationAPI is a ASP.NET Web Application using [.NET FRAMEWORK (4.8 R
 ### License
 
 MIT License
+
 Copyright (c) [2021] [StudentRegistrationAPI]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
