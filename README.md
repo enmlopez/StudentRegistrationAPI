@@ -38,8 +38,6 @@
 | 5 	| Last            	| Req      	| str    	|
 | 6 	| Year            	| Non      	| str    	|
 | 7 	| Major           	| Non      	| str    	|
-
-
  ### Posting 
     1. Run the API project
     2. Open Postman
