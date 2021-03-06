@@ -1,4 +1,8 @@
 # StudentRegistrationAPI
+StudentRegistrationAPI is a ASP.NET Web Application using [.NET FRAMEWORK (4.8 Recommended)](https://dotnet.microsoft.com/download/dotnet-framework) that allows Students (ApplicationUser) to register for classes giving the user the options to choose from different courses, teachers, and departments.
+
+#### Sample Look - Class Details
+![image](https://user-images.githubusercontent.com/55348036/110220047-16095480-7e91-11eb-8652-bc696b3dd44e.png)
 
 ## Solution Layer
 
@@ -31,7 +35,7 @@
     8. Keys and values required 
 |   	| Key             	| Value    	| Type   	|
 |---	|-----------------	|----------	|--------	|
-| 1 	| Emai            	| Required 	| string 	|
+| 1 	| Email            	| Required 	| string 	|
 | 2 	| Password        	| Req      	| str    	|
 | 3 	| ConfirmPassword 	| Req      	| str    	|
 | 4 	| First           	| Req      	| str    	|
