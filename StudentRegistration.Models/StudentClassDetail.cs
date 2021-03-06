@@ -8,7 +8,7 @@ namespace StudentRegistration.Models
 {
     public class StudentClassDetail
     {
-        public string StudentId { get; set; }
+        public int StudentId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
     }
