@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StudentRegistration.Models
 {
-    public class DepartmnentDetail
+    public class DepartmentDetail
     {
         [Required]
         public int DepartmentId { get; set; }
