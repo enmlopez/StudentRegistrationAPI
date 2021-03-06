@@ -37,4 +37,38 @@
 | 7 	| Major           	| Non      	| str    	|
 
 
-    ### 
+ ### Posting 
+    1. Run the API project
+    2. Open Postman
+    3. Click on the + to create a new request
+
+### Required Key and value 
+
+#### 1. Teacher
+        
+| Name      	| Type    	| information 	            |
+|-----------	|---------	|------------------------	|
+| FirstName 	| string  	| Required               	|
+| LastName  	| string  	| Required               	|
+| CourseId  	| integer 	| None.                  	|
+        
+#### 2. Course
+| Name  	| Type   	| information                 	            |
+|-------	|--------	|----------------------------------------	|
+| Title 	| string 	| Required Max length: 100 Min length: 2 	|
+|       	|        	|                                        	|
+|       	|        	|                                        	|
+#### 3. Class
+| Name         	| Type    	| information                             	|
+|--------------	|---------	|----------------------------------------	|
+| Name         	| string  	| Required Max length: 100 Min length: 2 	|
+| CourseId     	| integer 	| Required                               	|
+| TeacherId    	| integer 	| Required                               	|
+| StudentId    	| string  	| Required                               	|
+| DepartmentId 	| integer 	| Required                               	|        
+#### 4. Department
+| Name         	| Type    	| information 	|
+|--------------	|---------	|-------------	|
+| DepartmentID 	| integer 	| Required    	|
+| Name         	| string  	| Required    	|
+| Building     	| string  	| Required    	|
