@@ -43,7 +43,7 @@ namespace StudentRegistration.Services
                                     Name = e.Name,
                                     CourseId = e.CourseId,
                                     TeacherId = e.TeacherId,
-                                    StudentId = e.Id,
+                                    StudentId = e.ApplicationUser.StudentId,
                                     DepartmentId = e.DepartmentId
                                 }
                         );
