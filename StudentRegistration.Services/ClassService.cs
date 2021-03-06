@@ -64,7 +64,7 @@ namespace StudentRegistration.Services
                     Name = entity.Name,
                     Teacher = new TeacherClassDetail() { TeacherId = entity.Teacher.TeacherId, FirstName = entity.Teacher.FirstName, LastName = entity.Teacher.LastName },
                     Course = new CourseClassDetail() { CourseId = entity.Course.CourseId, Title = entity.Course.Title },
-                    Student = new StudentClassDetail() { FirstName = entity.ApplicationUser.First, LastName = entity.ApplicationUser.Last, StudentId = entity.ApplicationUser.Id },
+                    Student = new StudentClassDetail() { FirstName = entity.ApplicationUser.First, LastName = entity.ApplicationUser.Last, StudentId = entity.ApplicationUser.StudentId },
                     Department = new DepartmentClassDetail() { DepartmentId=entity.Department.DepartmentId,Name = entity.Department.Name,Building = entity.Department.Building}
                 };
             }
