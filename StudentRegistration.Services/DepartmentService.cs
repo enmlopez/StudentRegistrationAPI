@@ -16,7 +16,6 @@ namespace StudentRegistration.Services
                 new Department()
                 {
                     Name = model.Name,
-                    DepartmentId = model.DepartmentID,
                     Building = model.Building
                     
                 };
@@ -48,7 +47,7 @@ namespace StudentRegistration.Services
             }
         }
 
-        public DepartmnentDetail GetDepartmentById(int id)
+        public DepartmentDetail GetDepartmentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -58,7 +57,7 @@ namespace StudentRegistration.Services
                     .SingleOrDefault(e => e.DepartmentId == id);
                 if (entity != null)
                 {
-                    return new DepartmnentDetail()
+                    return new DepartmentDetail()
                     {
                         DepartmentId = entity.DepartmentId,
                         Name = entity.Name,

@@ -11,9 +11,6 @@ namespace StudentRegistration.Models
     public class DepartmentCreate
     {
         [Required]
-        public int DepartmentID { get; set; }
-
-        [Required]
         public string Name { get; set; }
 
         [Required]
