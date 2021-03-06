@@ -16,7 +16,6 @@ namespace StudentRegistration.Services
                 new Department()
                 {
                     Name = model.Name,
-                    DepartmentId = model.DepartmentID,
                     Building = model.Building
                     
                 };
