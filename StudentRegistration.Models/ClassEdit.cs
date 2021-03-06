@@ -16,6 +16,7 @@ namespace StudentRegistration.Models
         public string Name { get; set; }
         public int? TeacherId { get; set; }
         public int? CourseId { get; set; }
+        public int? DepartmentId { get; set; }
         public string StudentId { get; set; }
 
     }

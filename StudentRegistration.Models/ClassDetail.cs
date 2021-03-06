@@ -14,5 +14,6 @@ namespace StudentRegistration.Models
         public virtual TeacherClassDetail Teacher { get; set; }
         public virtual CourseClassDetail Course { get; set; }
         public virtual StudentClassDetail Student { get; set; }
+        public virtual DepartmentClassDetail Department { get; set; }
     }
 }
