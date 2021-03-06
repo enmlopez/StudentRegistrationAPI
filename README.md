@@ -26,15 +26,15 @@
     6. We'll now register via that endpoint.
     7. https://localhost:44318/api/Account/RegisterLinks to an external site.
     8. Keys and values required 
-              |   | Key             | Value    | Type   |
-              |---|-----------------|----------|--------|
-              | 1 | Emai            | Required | string |
-              | 2 | Password        | Required | str    |
-              | 3 | ConfirmPassword |Required  | str    |
-              | 4 | First           |Required  | str    |
-              | 5 | Last            | Required | str    |
-              | 6 | Year            | Non      | str    |
-              | 7 | Major           | Non      | str    |
+|   	| Key             	| Value    	| Type   	|
+|---	|-----------------	|----------	|--------	|
+| 1 	| Emai            	| Required 	| string 	|
+| 2 	| Password        	| Req      	| str    	|
+| 3 	| ConfirmPassword 	| Req      	| str    	|
+| 4 	| First           	| Req      	| str    	|
+| 5 	| Last            	| Req      	| str    	|
+| 6 	| Year            	| Non      	| str    	|
+| 7 	| Major           	| Non      	| str    	|
 
 
     ### 
