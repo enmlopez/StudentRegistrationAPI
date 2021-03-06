@@ -10,10 +10,16 @@ namespace StudentRegistration.Models
 {
     public class TeacherUpdate
     {
+        [Required]
         public int TeacherId { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
+
+        [Required]
         public string LastName { get; set; }
+
+        [Required]
         public int? CourseId { get; set; }
-        //public virtual Course Course { get; set; }
     }
 }
