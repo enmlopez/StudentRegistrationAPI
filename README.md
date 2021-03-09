@@ -1,4 +1,8 @@
 # StudentRegistrationAPI
+StudentRegistrationAPI is a ASP.NET Web Application using [.NET FRAMEWORK (4.8 Recommended)](https://dotnet.microsoft.com/download/dotnet-framework) that allows Students (ApplicationUser) to register for classes giving the user the options to choose from different courses, teachers, and departments.
+
+#### Sample Look - Class Details
+![image](https://user-images.githubusercontent.com/55348036/110220047-16095480-7e91-11eb-8652-bc696b3dd44e.png)
 
 ## Solution Layer
 
@@ -27,11 +31,11 @@
     4. Paste the URL into the address bar and make sure the HTTP drop-down is set to POST
     5. If we check our API documentation, under Account we should see a Register endpoint.
     6. We'll now register via that endpoint.
-    7. https://localhost:44318/api/Account/RegisterLinks to an external site.
+    7. https://localhost:44318/api/Account/Register to an external site.
     8. Keys and values required 
 |   	| Key             	| Value    	| Type   	|
 |---	|-----------------	|----------	|--------	|
-| 1 	| Emai            	| Required 	| string 	|
+| 1 	| Email            	| Required 	| string 	|
 | 2 	| Password        	| Req      	| str    	|
 | 3 	| ConfirmPassword 	| Req      	| str    	|
 | 4 	| First           	| Req      	| str    	|
@@ -73,3 +77,27 @@
 | DepartmentID 	| integer 	| Required    	|
 | Name         	| string  	| Required    	|
 | Building     	| string  	| Required    	|
+
+### License
+
+MIT License
+
+Copyright (c) [2021] [StudentRegistrationAPI]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
